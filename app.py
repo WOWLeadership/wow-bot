@@ -19,10 +19,12 @@ def verify():
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
 
+    # Facebook webhook verification
     if mode == "subscribe" and token == VERIFY_TOKEN:
         return challenge, 200
 
-    return "Verification token mismatch", 403
+    # Public homepage for Meta reviewers
+    return "WOW Bot is online.", 200
 
 
 @app.route("/", methods=["POST"])
