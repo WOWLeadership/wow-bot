@@ -19,7 +19,7 @@ def verify():
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
 
-    if mode == "subscribe" and token == VERIFY_TOKEN:
+    if mode == "subscribe" and token == VERIFY_TOKEN:wowverify123
         return challenge, 200
 
     return "Verification token mismatch", 403
