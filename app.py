@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN")
-VERIFY_TOKEN = os.getenv("wowverify123")
+VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 
 RULES_LINK = "https://docs.google.com/document/d/1cPsrBR0YwIK6o0B2iBqPvg5F9aMoNKgDzAEAKZL81xs/edit?usp=sharing"
 REPORT_LINK = "https://forms.gle/x76SEWDnY5mNQ4LR8"
@@ -19,7 +19,7 @@ def verify():
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
 
-    if mode == "subscribe" and token == VERIFY_TOKEN:wowverify123
+    if mode == "subscribe" and token == VERIFY_TOKEN:
         return challenge, 200
 
     return "Verification token mismatch", 403
